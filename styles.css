@@ -1,0 +1,57 @@
+/*
+ * Variables
+ */
+:root {
+  --card-padding: 24px;
+  --card-height: 200px;
+  --card-skeleton: linear-gradient(lightblue var(--card-height), transparent 0);
+  --avatar-size: 32px;
+  --avatar-position: var(--card-padding) var(--card-padding);
+  --avatar-position-first: 25% 50%;
+  --avatar-position-middle: 50% 30%;
+  --avatar-position-third: 75% 60%;
+  --avatar-position-end: 100% var(--card-padding);
+  --avatar-skeleton: radial-gradient(circle 4px at center, blue 99%, transparent 0);
+  --footer-height: 40px;
+  --footer-position: 0 calc(var(--card-height) - var(--footer-height));
+  --footer-skeleton: linear-gradient(lavender var(--footer-height), transparent 0);
+  --blur-width: 200px;
+  --blur-size: var(--blur-width) calc(var(--card-height) - var(--footer-height)); }
+
+/*
+ * Card Skeleton for Loading
+ */
+.card {
+  width: 1000px;
+  height: var(--card-height); }
+  .card:empty::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    box-shadow: 0 10px 45px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(90deg, rgba(0, 0, 255, 0) 0, rgba(255, 0, 0, 0.8) 50%, rgba(255, 0, 0, 0) 100%), var(--avatar-skeleton), var(--footer-skeleton), var(--card-skeleton);
+    background-size: var(--blur-size), var(--avatar-size) var(--avatar-size), 100% var(--footer-height), 100% 100%;
+    background-position: -150% 0, var(--avatar-position), var(--footer-position), 0 0;
+    background-repeat: no-repeat;
+    animation: loading 2.0s infinite; }
+
+@keyframes loading {
+  50% {
+    background-position: 75% 0, var(--avatar-position-middle), var(--footer-position), 0 0; }
+  75% {
+    background-position: 150% 0, var(--avatar-position-third), var(--footer-position), 0 0; }
+  to {
+    background-position: 150% 0, var(--avatar-position-end), var(--footer-position), 0 0; } }
+/*
+ * Demo Stuff
+ */
+body {
+  min-height: 100vh;
+  background-color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+/*# sourceMappingURL=styles.css.map */
