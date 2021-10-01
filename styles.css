@@ -35,7 +35,8 @@
     background-size: var(--blur-size), var(--avatar-size) var(--avatar-size), 100% var(--footer-height), 100% 100%;
     background-position: -150% 0, var(--avatar-position), var(--footer-position), 0 0;
     background-repeat: no-repeat;
-    animation: loading 2.0s infinite; }
+    animation: loading 2.0s infinite;
+    animation-timing-function: linear; }
 
 @keyframes loading {
   50% {
